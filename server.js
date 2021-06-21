@@ -5,7 +5,7 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 
 const authRoute = require("./routes/auth");
-const userRoute = require("./routes/users");
+const chatsRoute = require("./routes/chats");
 
 dotenv.config();
 
@@ -21,7 +21,7 @@ app.use(helmet());
 app.use(morgan("common"));
 
 app.use("/api/auth", authRoute);
-app.use("/api/users", userRoute);
+app.use("/api/chats", chatsRoute);
 
 app.listen(
     process.env.PORT || 3000,
