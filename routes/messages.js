@@ -14,18 +14,18 @@ router.post("/", async (req, res) => {
     }
 });
 
-// // GET /api/messages/:chatID
-// // gets chats for user
-// router.get("/:userID", async (req, res) => {
-//     try {
-//         const chat = await Chat.find({
-//             participants: { $in: [req.params.userID] },
-//         });
+// GET /api/messages/:chatID
+// gets messages for chat
+router.get("/:chatID", async (req, res) => {
+    try {
+        const messages = await Message.find({
+            chatID: req.params.chatID,
+        });
 
-//         res.status(200).json(chat);
-//     } catch (err) {
-//         res.status(500).json(err.message);
-//     }
-// });
+        res.status(200).json(messages);
+    } catch (err) {
+        res.status(500).json(err.message);
+    }
+});
 
 module.exports = router;
