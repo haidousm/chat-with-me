@@ -6,6 +6,7 @@ const morgan = require("morgan");
 
 const authRoute = require("./routes/auth");
 const chatsRoute = require("./routes/chats");
+const messagesRoute = require("./routes/messages");
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.use(morgan("common"));
 
 app.use("/api/auth", authRoute);
 app.use("/api/chats", chatsRoute);
+app.use("/api/messages", messagesRoute);
 
 app.listen(
     process.env.PORT || 3000,

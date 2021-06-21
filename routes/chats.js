@@ -17,6 +17,8 @@ router.post("/", async (req, res) => {
     }
 });
 
+// GET /api/chats/:userID
+// gets chats for user
 router.get("/:userID", async (req, res) => {
     try {
         const chat = await Chat.find({
