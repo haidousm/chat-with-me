@@ -1,11 +1,14 @@
-const mongoose = requrie("mongoose");
+const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema(
     {
-        fullName: {
+        first: {
             type: String,
-            require: true,
-            min: 3,
+            required: true,
+        },
+        last: {
+            type: String,
+            required: true,
         },
         email: {
             type: String,
