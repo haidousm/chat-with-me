@@ -17,4 +17,16 @@ router.post("/", async (req, res) => {
     }
 });
 
+router.get("/:userID", async (req, res) => {
+    try {
+        const chat = await Chat.find({
+            participants: { $in: [req.params.userID] },
+        });
+
+        res.status(200).json(chat);
+    } catch (err) {
+        res.status(500).json(err.message);
+    }
+});
+
 module.exports = router;
